@@ -74,7 +74,7 @@ def simulateOneServer(filename):
 	i = 0
 	
 	while (i < len(listdata)):
-		#if the counter is equal to 0, start the timer
+		#if the counter is equal to t, start the timer
 		if(listdata[i][0] == t):
 			current_time = time.time()
 			#passing values to the functions in this class (time,length)
@@ -84,6 +84,7 @@ def simulateOneServer(filename):
 			#continue to the next value
 			i = i+1
 		else:
+			#if it doesn't, increase t by 1 and check again
 			lab_server.tick()
 			t = t + 1
 		if((not lab_server.busy()) and (not request_queue.is_empty())):
